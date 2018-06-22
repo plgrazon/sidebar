@@ -14,8 +14,19 @@ const detailsCtrl = {
         res.status(404).send(err);
       })
   },
+  // I added the every request below
   post: (req, res) => {
-
+    Detail.create(req.body)
+      .then(data => {
+        res.status(201).send(data);
+      })
+      .catch(err => {
+        console.log('failed to post details ', err);
+        res.status(404).send(err);
+      })
+  },
+  put: (req, res) => {
+    Details.findOne()
   }
 }
 

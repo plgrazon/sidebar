@@ -31,11 +31,11 @@ export default class Home extends Component{
 //      .catch((err) => console.log('err from post ', err))
       console.log('searching for restaurant id ', e)
       console.log("The time is ", moment().format('HHmm'))
-      
+
   }
 
   getDetails(e) {
-    axios('http://18.222.29.116:3002/api/details', {params: { rid: e }})  
+    axios('/api/details', {params: { rid: e }})
       .then(details => {
         delete details.data[0].id;
         delete details.data[0].rid;
@@ -47,7 +47,7 @@ export default class Home extends Component{
   }
 
   getHours(e) {
-    axios('http://18.222.29.116:3002/api/hours', {params : { rid: e }})
+    axios('/api/hours', {params : { rid: e }})
       .then(hours => {
         delete hours.data[0].id;
         delete hours.data[0].rid;
@@ -82,7 +82,7 @@ export default class Home extends Component{
     }
     const twoTimes = (time) => {
       return time.slice(-18).replace(/\n/, '').trim();
-    }    
+    }
 
     Object.keys(hours).map(day => {
       const open1 = parseInt(hours[day]) * 60 + min(hours[day]);

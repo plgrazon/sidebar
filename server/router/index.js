@@ -6,7 +6,8 @@ const router = require('express').Router();
 
 router.route('/details')
   .get(detailsCtrl.get)
-  .post(detailsCtrl.post);
+  .post(detailsCtrl.post)
+  .put(detailsCtrl.put);
 
 router.route('/hours')
   .get(hoursCtrl.get)
