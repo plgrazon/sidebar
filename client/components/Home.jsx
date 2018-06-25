@@ -21,7 +21,7 @@ export default class Home extends Component{
   }
 
   addRestaurants() {
-    const e = Math.floor(Math.random() * 100 + 1);
+    const e = Math.floor(Math.random() * 9999999 + 1);
 //    axios.post('/api/restaurants')
 //      .then((data) => {
         this.getDetails(e);
@@ -37,9 +37,9 @@ export default class Home extends Component{
   getDetails(e) {
     axios('/api/details', {params: { rid: e }})
       .then(details => {
-        delete details.data[0].id;
-        delete details.data[0].rid;
-        this.setState({ details: details.data[0] })
+        // delete details.data[0].id;
+        // delete details.data[0].rid;
+        // this.setState({ details: details.data[0] })
       })
       .catch(err => {
         console.log('failed /api/details get ', err);
@@ -59,7 +59,7 @@ export default class Home extends Component{
   }
 
   getMisc(e) {
-    axios('http://18.222.29.116:3002/api/misc', {params: { rid: e }})
+    axios('/api/misc', {params: { rid: e }})
       .then(misc => {
         delete misc.data[0].id;
         delete misc.data[0].rid;
