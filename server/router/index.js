@@ -12,11 +12,15 @@ router.route('/details')
 
 router.route('/hours')
   .get(hoursCtrl.get)
-  .post(hoursCtrl.post);
+  .post(hoursCtrl.post)
+  .put(hoursCtrl.put)
+  .delete(hoursCtrl.delete);
 
 router.route('/misc')
   .get(miscCtrl.get)
-  .post(miscCtrl.post);
+  .post(miscCtrl.post)
+  .put(miscCtrl.put)
+  .delete(miscCtrl.delete);
 
 router.route('/restaurants')
   .get(resCtrl.get)

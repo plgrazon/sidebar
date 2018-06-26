@@ -28,7 +28,7 @@ const detailsCtrl = {
   put: (req, res) => {
     client.query(`SELECT * FROM detail WHERE id = $1`, [req.query.rid], (err, data) => {
       if (err) {
-        console.log('Error to finding row to update in details ', err);
+        console.log('Error finding row to update in details ', err);
         res.status(404).send(err);
       }
       client.query(
@@ -42,14 +42,13 @@ const detailsCtrl = {
           console.log('Updated row in details');
           res.status(200).send(data);
         }
-      )
+      );
     });
-
   },
   delete: (req, res) => {
     client.query('DELETE FROM detail WHERE id = $1', [req.query.rid], (err, data) => {
       if (err) {
-        console.log('Error deleting row in details');
+        console.log('Error deleting row in details ', err);
         res.status(404).send(err);
       }
       console.log('Deleted row in details');
