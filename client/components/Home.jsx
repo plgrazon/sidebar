@@ -35,11 +35,12 @@ export default class Home extends Component{
   }
 
   getDetails(e) {
-    axios('/api/details', {params: { rid: e }})
+    axios('/api/details', {params: { id: e }})
       .then(details => {
-        // delete details.data[0].id;
+        delete details.data.rows[0].id;
         // delete details.data[0].rid;
-        // this.setState({ details: details.data[0] })
+        console.log('what is details ', details.data.rows[0]);
+        this.setState({ details: details.data.rows[0] });
       })
       .catch(err => {
         console.log('failed /api/details get ', err);
@@ -47,11 +48,12 @@ export default class Home extends Component{
   }
 
   getHours(e) {
-    axios('/api/hours', {params : { rid: e }})
+    axios('/api/hours', {params : { id: e }})
       .then(hours => {
-        delete hours.data[0].id;
-        delete hours.data[0].rid;
-        this.setState({ hours: hours.data[0] })
+        delete hours.data.rows[0].id;
+        // delete hours.data[0].rid;
+        console.log('what is hours ', hours.data.rows[0]);
+        this.setState({ hours: hours.data.rows[0] });
       })
       .catch(err => {
         console.log('failed to load /api/hours ', err)
@@ -59,11 +61,12 @@ export default class Home extends Component{
   }
 
   getMisc(e) {
-    axios('/api/misc', {params: { rid: e }})
+    axios('/api/misc', {params: { id: e }})
       .then(misc => {
-        delete misc.data[0].id;
-        delete misc.data[0].rid;
-        this.setState({ misc: misc.data[0] })
+        delete misc.data.rows[0].id;
+        // delete misc.data[0].rid;
+        console.log('what is misc ', misc.data.rows[0]);
+        this.setState({ misc: misc.data.rows[0] });
       })
       .catch(err => {
         console.log('failed /api/misc get ', err);
@@ -73,7 +76,7 @@ export default class Home extends Component{
   render() {
     const hours = this.state.hours;
     const now = moment().format('H') * 60 + moment().format('m') * 1;
-    const today = moment().format('ddd');
+    const today = moment().format('ddd').toLowerCase();
     const min = (time) => {
       return time.slice(0,5).replace(/:/, '').trim().slice(2) * 1;
     }
@@ -108,6 +111,11 @@ export default class Home extends Component{
               :
               ''
     });
+
+  console.log('state: ',this.state);
+  console.log('now: ', now);
+  console.log('today: ', today);
+  console.log('oneTime: ', oneTime)
 
     return(
       <div>

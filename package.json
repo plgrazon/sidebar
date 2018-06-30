@@ -27,12 +27,14 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "moment": "^2.22.2",
+    "newrelic": "^4.2.0",
     "nodemon": "^1.17.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "sequelize": "^4.37.10",
     "sinon": "^6.0.0",
-    "style-loader": "^0.21.0"
+    "style-loader": "^0.21.0",
+    "toobusy-js": "^0.5.1"
   },
   "devDependencies": {
     "babel-jest": "^23.0.1",
@@ -47,6 +49,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
     "mongodb": "^3.0.10",
+    "mongoose": "^5.1.6",
     "pg": "^7.4.3",
     "pg-promise": "^8.4.4",
     "regenerator-runtime": "^0.11.1",

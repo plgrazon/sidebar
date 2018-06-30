@@ -1,7 +1,7 @@
-const { detailsCtrl } = require('../controllers/detailsCtrl');
-const { hoursCtrl } = require('../controllers/hoursCtrl');
-const { miscCtrl } = require('../controllers/miscCtrl');
-const { resCtrl } = require('../controllers/resCtrl');
+const { detailsCtrl } = require('../controllers/postgres/detailsCtrl');
+const { hoursCtrl } = require('../controllers/postgres/hoursCtrl');
+const { miscCtrl } = require('../controllers/postgres/miscCtrl');
+const { resCtrl } = require('../controllers/postgres/resCtrl');
 const router = require('express').Router();
 
 router.route('/details')

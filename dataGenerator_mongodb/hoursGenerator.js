@@ -1,7 +1,10 @@
 const fs = require('fs');
 
+let rid = 1;
+
 const hoursGen = () => {
   const result = [];
+  result.push(rid);
   const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
   const hours = [
     '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30', '5:00', '5:30',
@@ -12,9 +15,11 @@ const hoursGen = () => {
   for (var i = 0; i < days.length; i++) {
     let randomNum = Math.floor(Math.random() * hours.length);
     let day = days[i];
-    result.push(`${hours[randomNum]} am - ${hours[(randomNum + 8) % hours.length]} pm`);
+
+    result.push(`${hours[randomNum]} am - ${hours[(randomNum + 8) % hours.length]} pm`)
   }
-  return result.join(',');
+  rid++;
+  return (result);
 }
 
 let writeStream = fs.createWriteStream('hours.csv', {flags: 'a'});

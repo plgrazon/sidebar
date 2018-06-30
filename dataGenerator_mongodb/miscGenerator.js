@@ -1,15 +1,18 @@
 const fs = require('fs');
 
+let rid = 1;
+
 const miscGen = () => {
   const genAns = ['Yes', 'No', 'Maybe'];
   const data = ['takes_reservations', 'takezout', 'accepts_credit_cards', 'accepts_apple_pay', 'good_for', 'parking', 'bike_parking', 'wheelchair_accessible', 'good_for_kids', 'good_for_groups', 'dogs_allowed', 'attire', 'ambience', 'noise_level', 'alcohol', 'outdoor_seating', 'wifi', 'has_tv', 'caters', 'gender_neutral_restrooms', 'smoking'];
   const misc = [];
+  misc.push(rid);
 
   data.map(item => {
     let randomNum = Math.floor(Math.random() * 3);
     misc.push(genAns[randomNum]);
   });
-
+  rid++;
   return misc.join(',');
 };
 
@@ -18,7 +21,6 @@ let writeStream = fs.createWriteStream('misc.csv', {flags: 'a'});
 const writeTenMillionTimes = (limit, callback) => {
   console.log('start: ', new Date());
   const write = () => {
-    console.time('start: ', new Date());
     let drained = true;
     do {
       limit--;

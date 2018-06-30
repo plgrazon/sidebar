@@ -1,4 +1,4 @@
-const { client } = require('../../db/config');
+const { client } = require('../../../db/config');
 // const { Misc } = require('../../db/models');
 
 const miscCtrl = {
@@ -6,13 +6,14 @@ const miscCtrl = {
     client.query('SELECT * FROM misc where id = $1', [req.query.id], (err, data) => {
       if (err) {
         console.log('Error getting misc ', err);
-        res.status(404).send(err);
+        res.status(404).send('Error getting misc');
       }
-      console.log('Got row from misc');
+      // console.log('Got row from misc');
       res.status(200).send(data);
     });
   },
   post: (req, res) => {
+    console.log('what is ', req);
     client.query(
       'INSERT INTO misc(takes_reservations, takezout, accepts_credit_cards, accepts_apple_pay, ' +
       'good_for, parking, bike_parking, wheelchair_accessible, good_for_kids, good_for_groups, ' +
@@ -45,9 +46,9 @@ const miscCtrl = {
       (err, data) => {
         if(err) {
           console.log('Error inserting row to misc ', err);
-          res.status(404).send(err);
+          res.status(404).send('Error getting misc');
         }
-        console.log('Added row to misc');
+        // console.log('Added row to misc');
         res.status(201).send(data);
       }
     );
@@ -57,7 +58,7 @@ const miscCtrl = {
       'SELECT * FROM misc where id = $1', [req.query.id], (err, data) => {
         if (err) {
           console.log('Error finding row to update in misc ', err);
-          res.status(404).send(err);
+          res.status(404).send('Error getting misc');
         }
         client.query(
           'UPDATE misc SET takes_reservations = $2, takezout = $3, accepts_credit_cards = $4, accepts_apple_pay = $5, ' +
@@ -92,9 +93,9 @@ const miscCtrl = {
           (err, data) => {
             if (err) {
               console.log('Error updating row in misc ', err);
-              res.status(404).send(err);
+              res.status(404).send('Error getting misc');
             }
-            console.log('Updated row in misc');
+            // console.log('Updated row in misc');
             res.status(200).send(data);
           }
         );
@@ -105,9 +106,9 @@ const miscCtrl = {
     client.query('DELETE FROM misc WHERE id = $1', [req.query.id], (err, data) => {
       if (err) {
         console.log('Error deleteing row in misc ', err);
-        res.status(404).send(err);
+        res.status(404).send('Error getting misc');
       }
-      console.log('Deleted row in misc');
+      // console.log('Deleted row in misc');
       res.status(204).send(data);
     });
   }

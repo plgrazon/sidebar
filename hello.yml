@@ -1,0 +1,26 @@
+config:
+  target: 'http://localhost:3002/api'
+  http:
+    pool: 10
+      # All HTTP requests from all virtual users will be sent over the same 10 connection
+  phases:
+    - duration: 30
+      arrivalRate: 10
+  variables:
+    ids:
+      - ['10000000', '9033926', '9524385']
+      - ['9143190', '9245763', '9819683']
+  defaults:
+    headers:
+      # x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: '/details?id={{ $loopElement }}'
+      - get:
+          url: '/hours?id={{ $loopElement }}'
+      - get:
+          url: '/misc?id={{ $loopElement }}'
+      over: ids
+      count: 5

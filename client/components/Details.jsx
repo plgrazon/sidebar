@@ -13,21 +13,21 @@ export default class Details extends Component{
     const hours = this.props.hours;
     const today = hours[moment().format('ddd')];
     const details = this.props.details;
-    const priceString = "'" + details.Price_Range + "'";
+    const priceString = "'" + details.price_range + "'";
     const price = Math.abs(priceString.slice(4,-1));
-    const health = details.Health_Score;
-    
+    const health = details.health_score;
+
     return(
       <div>
         <table className={styles.table}>
           <tr>
-            { 
+            {
               isOpen1 || isOpen2 ?
                 <td className={[styles.green, styles.widthCol1, styles.center].join(' ')}><i class="far fa-clock"></i></td>
                 :
                 <td className={[styles.red, styles.widthCol1, styles.center].join(' ')}><i class="far fa-clock"></i></td>
             }
-            <td className={styles.grayBorder}><pre className={styles.preReset}>Today  <span className={styles.bold}>{today} 
+            <td className={styles.grayBorder}><pre className={styles.preReset}>Today  <span className={styles.bold}>{today}
               {
                 isOpen1 || isOpen2 ?
                   <span className={[styles.green, styles.bottom].join(' ')}>  Open now</span>
@@ -49,12 +49,12 @@ export default class Details extends Component{
                   <span><span className={styles.green}>$</span>$$$ </span>
                   :
                   Number(price) < 60 ?
-                    <span><span className={styles.green}>$$</span>$$ </span> 
+                    <span><span className={styles.green}>$$</span>$$ </span>
                     :
                     Number(price) < 80 ?
                       <span><span className={styles.green}>$$$</span>$ </span>
                       :
-                      <span className={styles.green}>$$$$</span> 
+                      <span className={styles.green}>$$$$</span>
               }
             </td>
             <td className={styles.grayBorder}>
@@ -80,7 +80,7 @@ export default class Details extends Component{
                           <span className={[styles.green, styles.f, styles.help].join(' ')}><i class="fab fa-internet-explorer"></i></span>
                           :
                           <span className={[styles.red, styles.f, styles.help].join(' ')}><i class="fas fa-fighter-jet"></i></span>
-              }     
+              }
             </td>
               <td className={[styles.blue, styles.bold, styles.underline, styles.help].join(' ')}>Health Score</td>
           </tr>

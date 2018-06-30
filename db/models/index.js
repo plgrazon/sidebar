@@ -1,7 +1,7 @@
 // const Sequelize = require('sequelize');
 // const { db } = require('../config');
-// const { resCtrl } = require('../../server/controllers/resCtrl.js');
-
+// const { resCtrl } = require('../../server/controllers/postgres/resCtrl.js');
+//
 // const Restaurant = db.define('restaurant', {
 //   name: {
 //     type: Sequelize.STRING,

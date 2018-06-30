@@ -19,7 +19,7 @@ const detailsGen = () => {
   return Object.values(details).join(',');
 };
 
-let writeStream = fs.createWriteStream('details.csv', {flags: 'a'});
+let writeStream = fs.createWriteStream('detailsTest.csv', {flags: 'a'});
 const writeTenMillionTimes = (limit, callback) => {
   console.log('start: ', new Date());
 

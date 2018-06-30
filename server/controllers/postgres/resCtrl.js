@@ -1,6 +1,6 @@
-const { Restaurant } = require('../../db/models');
-const data = require('./data.js');
-const { db } = require('../../db/config')
+const { Restaurant } = require('../../../db/models');
+const data = require('../data.js');
+const { db } = require('../../../db/config')
 
 const resCtrl = {
   get: (req, res) => {
@@ -9,7 +9,7 @@ const resCtrl = {
   post: (req, res) => {
     db.queryInterface.bulkInsert('restaurants', data.restaurantData)
       .then((data) => {
-        console.log('inserted restaurant dummies ', data); 
+        console.log('inserted restaurant dummies ', data);
       })
       .catch((err) => console.log('failed insert restaurant dummies ', err))
 //     res.status(201).send(data)
