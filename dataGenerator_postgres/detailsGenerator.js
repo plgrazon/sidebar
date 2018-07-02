@@ -41,7 +41,7 @@ const writeTenMillionTimes = (limit, callback) => {
   write();
 };
 
-writeTenMillionTimes(10000000, (err) => {
+writeTenMillionTimes(1, (err) => {
   if (err) console.log('error in details generator ', err);
   writeStream.end();
   console.log('closed: ', new Date());

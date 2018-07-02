@@ -1,28 +1,20 @@
-DROP DATABASE IF EXISTS sidebar;
-CREATE DATABASE sidebar;
+DROP DATABASE IF EXISTS restaurant;
+CREATE DATABASE restaurant;
 
-\c sidebar;
+\c restaurant;
 
-CREATE TABLE Detail (
+CREATE TABLE restoDetails (
   ID SERIAL PRIMARY KEY,
   today VARCHAR,
   price_range VARCHAR,
-  health_score VARCHAR
-);
-
-CREATE TABLE Hour (
-  ID SERIAL PRIMARY KEY,
+  health_score VARCHAR,
   mon VARCHAR,
   tue VARCHAR,
   wed VARCHAR,
   thu VARCHAR,
   fri VARCHAR,
   sat VARCHAR,
-  sun VARCHAR
-);
-
-CREATE TABLE Misc (
-  ID SERIAL PRIMARY KEY,
+  sun VARCHAR,
   takes_reservations VARCHAR,
   takezout VARCHAR,
   accepts_credit_cards VARCHAR,

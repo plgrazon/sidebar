@@ -1,5 +1,15 @@
-const { client } = require('./index.js');
+// const { client } = require('./index.js');
 
+/* Resto Details **************************************************************/
+  console.log('begin copying resto details: ', new Date());
+  client.query(`COPY restodetails(today, price_range, health_score, mon, tue, wed, thu, fri, sat, sun, takes_reservations, takezout, accepts_credit_cards, accepts_apple_pay, good_for, parking, bike_parking, wheelchair_accessible, good_for_kids, good_for_groups, dogs_allowed, attire, ambience, noise_level, alcohol, outdoor_seating, wifi, has_tv, caters, gender_neutral_restrooms, smoking) FROM '/Users/biosync/Desktop/sidebar/dataGenerator_postgres/restodetailstest.csv' DELIMITER ',' CSV`)
+    .then(() => {
+      console.log('close copying resto details: ', new Date());
+    })
+    .catch(err => {
+      console.log('error copying resto details ', err);
+    });
+/* Resto Details **************************************************************/
 /* Details ********************************************************************/
   // console.log('begin copying details: ', new Date());
   // client.query(`COPY detail(today, price_range, health_score) FROM '/Users/biosync/Desktop/sidebar/dataGenerator_postgres/details.csv' DELIMITER ',' CSV`)

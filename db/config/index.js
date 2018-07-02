@@ -28,14 +28,14 @@ const { Pool } = require('pg');
 const pool = new Pool({
   user: 'biosync',
   host: 'localhost',
-  database: 'sidebar',
+  database: 'restaurant',
   password: ''
 });
 
 // const client = new Client({
 //   user: 'biosync',
 //   host: 'localhost',
-//   database: 'sidebar',
+//   database: 'restaurant',
 //   password: ''
 // });
 
@@ -44,7 +44,7 @@ pool.on('error', (err, client) => {
   process.exit(-1);
 });
 
-pool.connect(err => {
+pool.connect((err, client) => {
   if (err) {
     console.log('failed to connect to db ', err);
   } else {
