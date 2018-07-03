@@ -33,7 +33,7 @@ export default class Home extends Component{
       console.log("The time is ", moment().format('HHmm'))
 
   }
-  
+
   getDetails(e) {
     axios('/api/details', {params: { id: e }})
       .then(details => {
@@ -111,11 +111,6 @@ export default class Home extends Component{
               :
               ''
     });
-
-  console.log('state: ',this.state);
-  console.log('now: ', now);
-  console.log('today: ', today);
-  console.log('oneTime: ', oneTime)
 
     return(
       <div>

@@ -5,7 +5,7 @@ config:
       # All HTTP requests from all virtual users will be sent over the same 10 connection
   phases:
     - duration: 30
-      arrivalRate: 10
+      arrivalRate: 100
   variables:
     ids:
       - ['10000000', '9033926', '9524385']
@@ -23,4 +23,9 @@ scenarios:
       - get:
           url: '/misc?id={{ $loopElement }}'
       over: ids
-      count: 5
+      count: 10
+
+    - loop:
+      - post:
+          url: '/details'
+          json:

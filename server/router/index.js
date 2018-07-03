@@ -22,8 +22,8 @@ router.route('/misc')
   .put(miscCtrl.put)
   .delete(miscCtrl.delete);
 
-router.route('/restaurants')
-  .get(resCtrl.get)
-  .post(resCtrl.post);
+// router.route('/restaurants')
+//   .get(resCtrl.get)
+//   .post(resCtrl.post);
 
 module.exports.router = router;

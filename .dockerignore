@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+dataGenerator_postgres/details.csv
+dataGenerator_postgres/hours.csv
+dataGenerator_postgres/misc.csv
+dataGenerator_postgres/restodetailstest.csv
+dataGenerator_mongodb/details.csv
+dataGenerator_mongodb/hours.csv
+dataGenerator_mongodb/misc.csv
+*.csv

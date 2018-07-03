@@ -1,33 +1,30 @@
-version: '2'
+version: '3'
 services:
   db:
-    image: postgres:9.6
-    networks:
-      [webnet]
-    environment:
-      POSTGRES_DB: postgres    
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD:
-    volumes:
-      - db-data:/var/lib/data
-  proxy:
-    image: phwu123/prox
+    image: postgres
     ports:
-      - "3900:3900"
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: sidebar
+    # volumes:
+    #   - db-data:/var/lib/data
   web:
-    depends_on:
-      - db
-    image: phwu123/side
-    command: bash -c "sleep 5; npm start"
-    networks:
-      [webnet]
+    build: .
+    command: bash -c "npm start"
+    image: welp-sidebar
+    # volumes:
+    #   - .:/app
     ports:
       - "3002:3002"
-    environment:
-      DB_HOST: db
-    links:
+    depends_on:
       - db
-volumes: 
-  db-data:
-networks:
-  webnet:
+    environment:
+      # DATABASE_URL: postgres://postgres@db
+      DB_HOST: db
+    # links:
+    #   - db
+# volumes:
+#   db-data:
+# networks:
+#   webnet:

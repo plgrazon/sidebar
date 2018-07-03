@@ -26,8 +26,8 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'biosync',
-  host: 'localhost',
+  user: 'postgres',
+  host: process.env.DB_HOST,
   database: 'sidebar',
   password: ''
 });
