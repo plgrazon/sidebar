@@ -9,3 +9,9 @@ hours.csv
 misc.csv
 license_key.js
 restodetailstest.csv
+my-ec2-key-pair.pem
+docker-postgres/details.csv.zip
+docker-postgres/hours.csv.zip
+docker-postgres/misc.csv.zip
+docker-compose.yml
+loaderio-2b85edcf2e4efc9e6e410cc099976892.txt

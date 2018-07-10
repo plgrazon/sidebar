@@ -12,7 +12,6 @@ const detailsCtrl = {
     });
   },
   post: (req, res) => {
-    console.log('what is details body ', req.body);
     client.query(
       'INSERT INTO detail(today, price_range, health_score) VALUES($1, $2, $3)',
       [req.body.today, req.body.price_range, req.body.health_score],

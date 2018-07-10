@@ -8,3 +8,7 @@ dataGenerator_mongodb/details.csv
 dataGenerator_mongodb/hours.csv
 dataGenerator_mongodb/misc.csv
 *.csv
+my-ec2-key-pair.pem
+docker-postgres/details.csv.zip
+docker-postgres/hours.csv.zip
+docker-postgres/misc.csv.zip

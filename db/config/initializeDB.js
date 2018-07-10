@@ -30,3 +30,6 @@ const { client } = require('./index.js');
   //     console.log('error copying misc ', err);
   //   });
 /* Misc ***********************************************************************/
+
+COPY hour(mon, tue, wed, thu, fri, sat, sun) FROM '/home/hours.csv' DELIMITER ',' CSV;
+COPY misc(takes_reservations, takezout, accepts_credit_cards, accepts_apple_pay, good_for, parking, bike_parking, wheelchair_accessible, good_for_kids, good_for_groups, dogs_allowed, attire, ambience, noise_level, alcohol, outdoor_seating, wifi, has_tv, caters, gender_neutral_restrooms, smoking) FROM '/home/misc.csv' DELIMITER ',' CSV

@@ -12,9 +12,16 @@ const toobusy = require('toobusy-js');
 const { router } = require('./router');
 
 const app = express();
-const port = process.env.db_port || 3002;
+const port = 3002;
 
 app.use(cors());
+
+app.get(
+  '/loaderio-7dad13af7e0d2d43497cb43ec00a0282',
+  function(req, res) {
+    res.send(process.env.loader_key);
+  }
+);
 
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));

@@ -1,11 +1,11 @@
 config:
-  target: 'http://localhost:3002/api'
+  target: 'http://13.57.42.91:8080/api'
   http:
     pool: 10
       # All HTTP requests from all virtual users will be sent over the same 10 connection
   phases:
     - duration: 30
-      arrivalRate: 100
+      arrivalRate: 800
   variables:
     ids:
       - ['10000000', '9033926', '9524385']
